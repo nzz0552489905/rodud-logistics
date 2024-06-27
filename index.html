@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodud Logistics</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Rodud Logistics</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن النظام</a></li>
+                    <li><a href="#register">التسجيل</a></li>
+                    <li><a href="#login">تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="home">
+        <section class="intro">
+            <div class="container">
+                <h2>مرحبا بكم في نظام Rodud</h2>
+                <p>نظام لوجستي متكامل لإدارة الطلبات وتتبع الرحلات.</p>
+                <a href="#register" class="btn">التسجيل</a>
+                <a href="#login" class="btn">تسجيل الدخول</a>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <h2>عن النظام</h2>
+                <p>نظام Rodud يتكون من ثلاثة مستخدمين: السائق، العميل، والمورد. يقدم النظام حلولاً متكاملة لإدارة الطلبات وتتبع الرحلات بسهولة ويسر.</p>
+            </div>
+        </section>
+        <section id="register">
+            <div class="container">
+                <h2>التسجيل</h2>
+                <div class="register-forms">
+                    <form id="driver-register">
+                        <h3>تسجيل السائق</h3>
+                        <input type="text" placeholder="اسم السائق" required>
+                        <input type="text" placeholder="رقم الهاتف" required>
+                        <button type="submit" formaction="driver-dashboard.html">تسجيل</button>
+                    </form>
+                    <form id="client-register">
+                        <h3>تسجيل العميل</h3>
+                        <input type="text" placeholder="اسم العميل" required>
+                        <input type="text" placeholder="رقم الهاتف" required>
+                        <button type="submit" formaction="client-dashboard.html">تسجيل</button>
+                    </form>
+                    <form id="supplier-register">
+                        <h3>تسجيل المورد</h3>
+                        <input type="text" placeholder="اسم المورد" required>
+                        <input type="text" placeholder="رقم الهاتف" required>
+                        <button type="submit" formaction="supplier-dashboard.html">تسجيل</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section id="login">
+            <div class="container">
+                <h2>تسجيل الدخول</h2>
+                <form id="login-form">
+                    <input type="text" placeholder="رقم الهاتف" required>
+                    <select id="user-type" required>
+                        <option value="" disabled selected>اختر نوع المستخدم</option>
+                        <option value="driver">سائق</option>
+                        <option value="client">عميل</option>
+                        <option value="supplier">مورد</option>
+                    </select>
+                    <button type="button" onclick="login()">تسجيل الدخول</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Rodud Logistics. جميع الحقوق محفوظة.</p>
+            <p>Created by Nawaf Al-amri</p>
+        </div>
+    </footer>
+
+    <script>
+        function login() {
+            const userType = document.getElementById('user-type').value;
+            if (userType === 'driver') {
+                window.location.href = 'driver-dashboard.html';
+            } else if (userType === 'client') {
+                window.location.href = 'client-dashboard.html';
+            } else if (userType === 'supplier') {
+                window.location.href = 'supplier-dashboard.html';
+            } else {
+                alert('يرجى اختيار نوع المستخدم.');
+            }
+        }
+    </script>
+</body>
+</html>
